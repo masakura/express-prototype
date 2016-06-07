@@ -44,7 +44,7 @@ kintone をバックエンドに利用することで手軽にアプリが作れ
 1. kintone で API Token を発行する
   - `商品アプリ`は読み取りのみ
   - `受注アプリ`は新規追加のみ
-2. [GitHub のこのプロジェクト](https://github.com/masakura/express-prototype)をフォークする
+2. [GitHub のこのプロジェクト](https://github.com/masakura/taniyama-shopping)をフォークする
 3. フォークしたプロジェクトを `git clone`
   - `npm install` でパッケージをインストール
 4. 環境変数を設定する

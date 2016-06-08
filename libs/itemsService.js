@@ -31,7 +31,6 @@ class ItemsService {
       params += `&query=${query}`;
     }
 
-
     // kintone API の URL を作る。
     // https://cybozudev.zendesk.com/hc/ja/articles/202331474-%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E5%8F%96%E5%BE%97-GET-#step2
     const uri = `${kintoneApp.base}records.json?app=${kintoneApp.id}${params}`;
@@ -44,10 +43,12 @@ class ItemsService {
         'X-Cybozu-API-Token': kintoneApp.token
       }
     })
-      .then(res => {debug(res); return res;})
-      // 戻り値を JSON からオブジェクトに変換。
+    // 戻り値を JSON からオブジェクトに変換。
       .then(res => res.json())
       .then(data => {
+        debug(JSON.stringify(data));
+
+        // レコードがないときはプロパティがないので空の配列にする
         const records = data.records || [];
 
         // 商品情報の形式を、kintone の形式から表示に適した形式に変換する。
@@ -63,8 +64,7 @@ class ItemsService {
         items.sort((a, b) => a.id - b.id);
 
         return items;
-      })
-      .then(null, debug);
+      }, debug)
   }
 }
 

@@ -46,16 +46,6 @@ class ItemsService {
     // 戻り値を JSON からオブジェクトに変換。
       .then(res => res.json())
       .then(data => {
-        return Promise.resolve([
-          {
-            id: 1,
-            code: 'DUMMY001',
-            name: 'ダミー商品',
-            summary: 'ダミーの商品',
-            price: 1280
-          }
-        ]);
-/*
         debug(JSON.stringify(data));
 
         // レコードがないときはプロパティがないので空の配列にする
@@ -74,7 +64,6 @@ class ItemsService {
         items.sort((a, b) => a.id - b.id);
 
         return items;
-*/
       }, debug)
   }
 }

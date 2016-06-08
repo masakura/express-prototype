@@ -17,7 +17,7 @@ test:
 ## https://hub.docker.com/ で確認できる
 deployment:
   hub:
-    branch: /*/
+    branch: /.*/
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push $DOCKER_USER/shopping:`git rev-parse --short HEAD`

@@ -24,6 +24,17 @@ class ItemsService {
    * @returns {Promise.<Array.<{id: *, code: *, name: *, price: *, imageUri: *, summary: *}>>} 商品情報。
      */
   getItems(ids) {
+    return Promise.resolve([
+      {
+        id: 1,
+        code: 'DUMMY001',
+        name: 'ダミー商品',
+        summary: 'ダミーの商品',
+        price: 1280
+      }
+    ]);
+
+    /*
     // レコード ID が指定されていた場合は、そのレコード ID のみ取得する。
     let params = '';
     if (ids) {
@@ -65,6 +76,7 @@ class ItemsService {
 
         return items;
       }, debug)
+    */
   }
 }
 

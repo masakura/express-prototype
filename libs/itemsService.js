@@ -75,7 +75,7 @@ class ItemsService {
         items.sort((a, b) => a.id - b.id);
 
         return items;
-      }, debug)
+      }, debug);
     */
   }
 }

@@ -57,7 +57,7 @@ class OrdersService {
           fullName: {
             value: order.fullName
           },
-          details: {
+          Details: {
             value: details
           }
         }

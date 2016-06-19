@@ -1,4 +1,5 @@
 const express = require('express');
+const debug = require('debug')('onlineshop:application');
 const CartService = require('../libs/cartService');
 const OrdersService = require('../libs/ordersService');
 const router = express.Router();
@@ -7,7 +8,8 @@ router.get('/', (req, res) => {
   const cartService = new CartService(req);
 
   cartService.getCart()
-    .then(cart => res.render('cart', {title: 'cart', cart}));
+    .then(cart => res.render('cart', {title: 'cart', cart}))
+    .catch(debug);
 });
 router.post('/add', (req, res) => {
   const cartService = new CartService(req);
@@ -40,7 +42,8 @@ router.post('/buy', (req, res) => {
 
   ordersService.addOrder(order)
     .then(() => cartService.clearAllItems())
-    .then(() => res.render('cart-buy-finish', {title: '購入手続きが完了しました'}));
+    .then(() => res.render('cart-buy-finish', {title: '購入手続きが完了しました'}))
+    .catch(debug);
 })
 
 module.exports = router;

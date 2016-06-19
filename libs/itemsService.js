@@ -70,13 +70,13 @@ class ItemsService {
             name: row.name.value,
             price: row.price.value,
             imageUri: row.imageUri.value || '//placehold.it/640x340?text=no image',
-            summary: row.summary.value
+            summary: row.summary ? row.summary.value : ''
           }));
         items.sort((a, b) => a.id - b.id);
 
         return items;
       }, debug);
-    */
+      */
   }
 }
 
